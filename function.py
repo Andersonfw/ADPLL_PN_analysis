@@ -111,8 +111,8 @@ def adpll_spectrum(phase, fs):
     plt.legend()
     # plt.show()
 
-    #return L_pn_dBc_Hz , f_pn
-    return L_spur_dBc , f_spur
+    return L_pn_dBc_Hz , f_pn
+    # return L_spur_dBc , f_spur
 
 def edges_convert_to_freq_out_analyses(t_edges, window_time, time_cut_freq_analysis,silent=False):
     
