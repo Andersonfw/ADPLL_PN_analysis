@@ -14,7 +14,7 @@ import os
 import scienceplots as sp
 import pandas as pd
 
-IEEE_PICTURES = false  # Set to True to generate IEEE-style plots, False for default style
+IEEE_PICTURES = TRUE  # Set to True to generate IEEE-style plots, False for default style
 ALL_IN_ONE = true
 
 # --- Parâmetros do ADPLL ---
@@ -84,7 +84,14 @@ if IEEE_PICTURES:
     plt.rcParams['legend.facecolor'] = 'lightgray'
 
     if ALL_IN_ONE:
-        fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
+        # fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(6.2, 5))
+        # fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(6.2, 4.5), sharex=True, sharey=True)
+        fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(6.2, 5.0), sharex=True, sharey=False)
+
+        # VINCULAÇÃO PERSONALIZADA:
+        # Força o gráfico (d) [índice 1,1] a ter o mesmo eixo Y do gráfico (a) [índice 0,0]
+        axs[1, 1].sharey(axs[0, 0])
+
     else:
         fig_tdc, ax_tdc = plt.subplots(figsize=(10, 6), dpi=600)
         fig_dco, ax_dco = plt.subplots(figsize=(10, 6), dpi=600)
@@ -181,46 +188,68 @@ for config in configs:
 
 
 if ALL_IN_ONE:
+
+    linhas_legenda = axs[0, 0].get_lines()
+    labels_legenda = [l.get_label() for l in linhas_legenda]
+
+    FONT_LABEL = 9
+    FONT_TICKS = 8
     # --- Configurações do Gráfico TDC ---
-    axs[0, 0].set_title("(a) FREF/TDC Transfer Function", fontsize=12)
+    axs[0, 0].set_title("(a) FREF/TDC Transfer Function", fontsize=FONT_LABEL, fontweight='bold', pad=4)
     # axs[0, 0].set_xlabel("Frequency offset (Hz)", fontsize=12)
-    axs[0, 0].set_ylabel("Phase noise (dBc/Hz)", fontsize=12)
-    axs[0, 0].grid(True, which="minor", ls="--", alpha=0.3)
-    axs[0, 0].tick_params(axis='x', labelsize=10)
-    axs[0, 0].tick_params(axis='y', labelsize=10)
+    # axs[0, 0].set_ylabel("Phase noise (dBc/Hz)", fontsize=12)
+    # axs[0, 0].grid(True, which="minor", ls="--", alpha=0.5)
+    # axs[0, 0].tick_params(axis='x', labelsize=FONT_TICKS)
+    # axs[0, 0].tick_params(axis='y', labelsize=FONT_TICKS)
     # plt.yticks(fontsize=12)
-    axs[0, 0].legend(facecolor='white', framealpha=1, fontsize=12)
+    # axs[0, 0].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL)
     # plt.tight_layout()
 
     # --- Configurações do Gráfico DCO ---
-    axs[0, 1].set_title("(b) DCO Transfer Function", fontsize=12)
+    axs[0, 1].set_title("(b) DCO Transfer Function", fontsize=FONT_LABEL, fontweight='bold', pad=4)
     # axs[0, 1].set_xlabel("Frequency offset (Hz)", fontsize=12)
-    axs[0, 1].set_ylabel("Phase noise (dBc/Hz)", fontsize=12)
-    axs[0, 1].grid(True, which="minor", ls="--", alpha=0.3)
-    axs[0, 1].tick_params(axis='x', labelsize=10)
-    axs[0, 1].tick_params(axis='y', labelsize=10)
-    axs[0, 1].legend(facecolor='white', framealpha=1, fontsize=12)
+    # axs[0, 1].set_ylabel("Phase noise (dBc/Hz)", fontsize=FONT_LABEL)
+    # axs[0, 1].grid(True, which="minor", ls="--", alpha=0.5)
+    # axs[0, 1].tick_params(axis='x', labelsize=FONT_TICKS)
+    # axs[0, 1].tick_params(axis='y', labelsize=FONT_TICKS)
+    # axs[0, 1].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL)
     # plt.tight_layout()
 
     #config system grafics
-    axs[1, 0].set_title("(c) System Transfer Function", fontsize=12)
-    axs[1, 0].set_xlabel("Frequency offset (Hz)", fontsize=12)  
-    axs[1, 0].set_ylabel("Phase noise (dBc/Hz)", fontsize=12)
-    axs[1, 0].grid(True, which="minor", ls="--", alpha=0.3)
-    axs[1, 0].tick_params(axis='x', labelsize=10)
-    axs[1, 0].tick_params(axis='y', labelsize=10)
-    axs[1, 0].legend(facecolor='white', framealpha=1, fontsize=12)
+    axs[1, 0].set_title("(c) System Transfer Function", fontsize=FONT_LABEL, fontweight='bold', pad=4)
+    # axs[1, 0].set_xlabel("Frequency offset (Hz)", fontsize=FONT_LABEL)  
+    # axs[1, 0].set_ylabel("Phase noise (dBc/Hz)", fontsize=FONT_LABEL)
+    # axs[1, 0].grid(True, which="minor", ls="--", alpha=0.5)
+    # axs[1, 0].tick_params(axis='x', labelsize=FONT_TICKS)
+    # axs[1, 0].tick_params(axis='y', labelsize=FONT_TICKS)
+    # axs[1, 0].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL)
     # plt.tight_layout()
 
     #config system_iir grafics
-    axs[1, 1].set_title("(d) System Transfer Function + IIR", fontsize=12)
-    axs[1, 1].set_xlabel("Frequency offset (Hz)", fontsize=12)  
-    axs[1, 1].set_ylabel("Phase noise (dBc/Hz)", fontsize=12)
-    axs[1, 1].grid(True, which="minor", ls="--", alpha=0.3)
-    axs[1, 1].tick_params(axis='x', labelsize=10)
-    axs[1, 1].tick_params(axis='y', labelsize=10)
-    axs[1, 1].legend(facecolor='white', framealpha=1, fontsize=12)
+    axs[1, 1].set_title("(d) System Transfer Function + IIR", fontsize=FONT_LABEL, fontweight='bold', pad=4)
+    # axs[1, 1].set_xlabel("Frequency offset (Hz)", fontsize=FONT_LABEL)  
+    # axs[1, 1].set_ylabel("Phase noise (dBc/Hz)", fontsize=FONT_LABEL)
+    # axs[1, 1].grid(True, which="minor", ls="--", alpha=0.5)
+    # axs[1, 1].tick_params(axis='x', labelsize=FONT_TICKS)
+    # axs[1, 1].tick_params(axis='y', labelsize=FONT_TICKS)
+    # axs[1, 1].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL)
     # plt.tight_layout()
+    for ax in axs.flat:
+        ax.grid(True, which="minor", ls="--", alpha=0.3)
+        ax.tick_params(axis='both', labelsize=FONT_TICKS)
+        ax.tick_params(labelleft=True) 
+        # ax.set_ylim(-180, -90)
+    
+    fig.supxlabel('Frequency offset (Hz)', fontsize=10)
+    fig.supylabel('Phase noise (dBc/Hz)', fontsize=10) # Ou a unidade correta do seu Step
+
+    fig.legend(handles=linhas_legenda, labels=labels_legenda, 
+               loc='lower center', bbox_to_anchor=(0.5, -0.07), ncol=len(configs), 
+               facecolor='white', framealpha=1, edgecolor='darkgrey', fontsize=FONT_LABEL)
+    
+    # 3. Organiza o layout da matriz 2x2
+    fig.set_layout_engine('constrained')
+
 
 else:
 

@@ -281,7 +281,7 @@ if __name__ == "__main__":
     plt.rcParams['legend.frameon'] = True
     plt.rcParams['legend.edgecolor'] = 'lightgray'
     plt.rcParams['legend.facecolor'] = 'lightgray'
-    plt.figure(figsize=(8, 5),dpi=600)
+    plt.figure(figsize=(5,2.8),dpi=600)
     # Plotar a resposta ao degrau
     #plt.plot(t, y)
     # 1. Crie um vetor de tempo adequado (ex: de 0 a 20 microssegundos, com 1000 pontos)
@@ -296,13 +296,13 @@ if __name__ == "__main__":
         plt.plot(t, y, label=r"$\zeta$: "+ f"{qsi:.2f}  $K_I$={pas[sys]}", color=color_p)
     #plt.title('Resposta ao Degrau da função $H_{TDC}$ variando $\zeta$ com $K_p=2^-5$ e $f_{REF}=$ 26MHz')
     # plt.xlabel('Time (s)')#, fontsize=13)
-    plt.xlabel('Time (s)', fontsize=17)
+    plt.xlabel('Time (s)', fontsize=9)
     # plt.ylabel('Step responde')#,fontsize=13)
-    plt.ylabel('Step Response',fontsize=17)
-    plt.legend(facecolor='white', framealpha=1,fontsize=13)
+    plt.ylabel('Step Response',fontsize=9)
+    plt.legend(facecolor='white', framealpha=1,fontsize=9)
     plt.xlim(0, 2e-5)
-    plt.yticks(fontsize=13)
-    plt.xticks(fontsize=13)
+    plt.yticks(fontsize=8)
+    plt.xticks(fontsize=8)
     plt.grid()
     # plt.savefig(r'C:\Users\ander\OneDrive\Área de Trabalho\artigo\step_htdc.eps', bbox_inches='tight', format='eps')
 
