@@ -6,3 +6,4 @@ output/final_results.csv
 output/power_report.csv
 .vscode/settings.json
 output/final_results.xlsm
+TEMP_FILES/*

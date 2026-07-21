@@ -19,7 +19,7 @@ import utilities as ut
 
 
 window_time = 0.5e-6  # Tamanho da janela para suavização (1us para BLE)
-time_cut_PN_start = 1.8e-04
+time_cut_PN_start = 2e-04
 time_cut_plot_start = time_cut_PN_start#5.0e-4 #1.2e-04
 time_cut_plot_stop = 250e-06
 
@@ -28,7 +28,7 @@ time_cut_plot_stop = 250e-06
 # ==============================================================================
 # CONFIGURAÇÃO DE CAMINHOS GLOBAIS
 # ==============================================================================
-RAIZ_DATA = path("data/MA") # Caminho base onde estão as subpastas
+RAIZ_DATA = path("data/TYP") # Caminho base onde estão as subpastas
 OUTPUT_PATH = path("output") # Caminho onde será salvo o relatório final
 CSV_SAIDA = path(OUTPUT_PATH/"analyses_result.csv") # Caminho do arquivo final de saída
 
@@ -74,7 +74,7 @@ for pasta_corner_freq in RAIZ_DATA.iterdir():
         bank_path     = ut.get_latest_file(data_path, "bank_cap", "csv")
         phe_path      = ut.get_latest_file(data_path, "phe", "csv")
         otw_path      = ut.get_latest_file(data_path, "otw", "csv")
-        active_settings_path = ut.get_latest_file(RAIZ_DATA, "sim_historic", "csv")
+        # active_settings_path = ut.get_latest_file(RAIZ_DATA, "sim_historic", "csv")
 
         fsm_file = pd.read_csv(fsm_path, sep=';', header=None)
         
@@ -84,7 +84,7 @@ for pasta_corner_freq in RAIZ_DATA.iterdir():
         t_edges = np.loadtxt(t_edges_path)
         phe = pd.read_csv(phe_path, sep=';', header=None)
         otw = pd.read_csv(otw_path, sep=';', header=None)
-        active_settings = pd.read_csv(active_settings_path, sep=';', header=None)
+        # active_settings = pd.read_csv(active_settings_path, sep=';', header=None)
 
         i_start_banks = 0 #(np.abs(bank_files[0] - time_cut_plot_start)).argmin()
         i_stop_banks = (np.abs(bank_files[0].values - time_cut_plot_stop)).argmin()
@@ -101,7 +101,7 @@ for pasta_corner_freq in RAIZ_DATA.iterdir():
         print(f"{ut.Colors.YELLOW}\r\n Bank_file: {bank_path.name}")
         print(f"{ut.Colors.YELLOW}\r\n OTW_file: {otw_path.name}")
         print(f"{ut.Colors.YELLOW}\r\n PHE_file: {phe_path.name}")
-        print(f"{ut.Colors.YELLOW}\r\n ACTIVE SETTINGS: {active_settings[1][len(active_settings)-1]} From Date {active_settings[0][len(active_settings)-1]} ")
+        # print(f"{ut.Colors.YELLOW}\r\n ACTIVE SETTINGS: {active_settings[1][len(active_settings)-1]} From Date {active_settings[0][len(active_settings)-1]} ")
         print(f"{ut.Colors.BLUE}\r\n--------------------------------------------------------------------",)
 
 

@@ -40,21 +40,22 @@ SIM_MODE = 9
 
 f_required =  2.418123e9 #2.39205e9 #2.402e9 #   #np.mean(fout[1])  # Hz 2.402e9
 window_time = 0.5e-6  # Tamanho da janela para suavização (1us para BLE)
-time_cut_PN_start = 1.8e-04
+time_cut_PN_start = 2.0e-04
 time_cut_plot_start = time_cut_PN_start#5.0e-4 #1.2e-04
-time_cut_plot_stop = 250e-06
+time_cut_plot_stop = time_cut_plot_start + 120e-6
 
 freq = "2402"
 # freq = "2440"
 # freq = "2480"
 # freq = "2418123"
 path_string = "data/"+freq
-path_string = "data/MA/2418123_TYP/FREF_SDM1"
+# path_string = "data/TYP/2418123_TYP/FPREDICT_SDM1"
+path_string = "data/SIM_DATA" 
 data_path = path(path_string)
 
 
 # --- load Files ---
-fsm_path = ut.get_latest_file("data", "fsm_states", "csv")
+fsm_path = ut.get_latest_file(data_path, "fsm_states", "csv")
 fsm_file = pd.read_csv(fsm_path, sep=';', header=None)
 
 

@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 # 1. Configura os caminhos (Altere se a sua pasta POWER estiver em outro local)
-power_dir = Path("data//POWER") 
+power_dir = Path("data/TYP/POWER") 
 OUTPUT_PATH = Path("output") # Caminho onde será salvo o relatório final
 output_csv = Path(OUTPUT_PATH/"power_report.csv") # Caminho do arquivo final de saída
 

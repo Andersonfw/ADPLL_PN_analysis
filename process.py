@@ -77,9 +77,10 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
         marker = 1e6  # Substitua pelo valor específico de frequência desejado
         indice = (np.abs(f - marker)).argmin()
         marker_dB = Xdb_o[indice]
-        win_avg = 10  # Número de pontos para média móvel
+        win_avg = 200  # Número de pontos para média móvel
         i_min = indice - win_avg
         i_max = indice + win_avg
+        # print(f"Freq Win min {f[i_min]:.2f} Hz | Freq Win max {f[i_max]:.2f} Hz")
         janela_db = Xdb_o[i_min:i_max]
         marker_dB_avg = np.mean(janela_db)
         
@@ -131,15 +132,26 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
         print(f"{ut.Colors.GREEN}PN In-band: {ut.Colors.WHITE} {marker_dB_tdc:.2f} dBc/Hz")
         print(f"{ut.Colors.GREEN}Jitter RMS (10 kHz - 100 kHz): {ut.Colors.WHITE} {jitter_rms_segundos * 1e15:.2f} fs")
         print(f"{ut.Colors.GREEN}Jitter RMS (all BW): {ut.Colors.WHITE} {jitter_rms_segundos_all * 1e15:.2f} fs")
-        print(f"{ut.Colors.GREEN}Drift Max BLE: {ut.Colors.WHITE} {ble_complice['max_drift']:.2f} kHz")
-        print(f"{ut.Colors.GREEN}Drift Max HIST: {ut.Colors.WHITE} {np.max((result["f_smooth"]- f_req_array)/1e3):.2f} kHz")
+        print(f"{ut.Colors.GREEN}Drift Max BLE: {ut.Colors.WHITE} {ble_complice['max_drift']:.2f} Hz")
+        print(f"{ut.Colors.GREEN}Drift Max HIST: {ut.Colors.WHITE} {np.max((np.abs(result["f_smooth"]- f_req_array))):.2f} Hz")
         print(f"{ut.Colors.GREEN}Frequency Deviation: {ut.Colors.WHITE} {ble_complice['f_ref_deviation_hz']:.2f} Hz")
         print(f"{ut.Colors.GREEN}Peak PSD PN: {ut.Colors.WHITE} {np.max(Xdb_o):.2f} dBc/Hz")
 
-
-
-
         print(f"{ut.Colors.RESET}\r\n--------------------------------------------------------------------")
+
+        ret = {
+                "PN_out (dBc/Hz)": round(marker_dB_avg, 3),
+                "PN_IN (dBc/Hz)": round(marker_dB_tdc, 3),
+                "jitter_in_band (fs)": round(jitter_rms_segundos * 1e15, 3),
+                "jitter_all_band (fs)": round(jitter_rms_segundos_all * 1e15, 3),
+                "drift_max_ble (Hz)": round(ble_complice['max_drift'], 3),
+                "drift_max_hist (Hz)": np.round(np.max(np.abs((result["f_smooth"] - f_req_array))), 3),
+                "f_deviation (Hz)": round(ble_complice['f_ref_deviation_hz'], 3),
+                "peak_psd (dBc/Hz)": np.round(np.max(Xdb_o), 3),
+                "status_drift": ble_complice['status_drift'],
+                "status_rate": ble_complice['status_rate'],
+                "status_f_ref_deviation": ble_complice['status_f_ref_deviation']
+            }
 
 
     if IEEE_en:
@@ -245,7 +257,7 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
 
         FONT_LABEL = 9
         FONT_TICKS = 8
-        text_labels_FSM = ['OFF', 'START', r'$\alpha$ 1', r'$\alpha$ 2', r'+ $\rho$', '+ IIR']
+        text_labels_FSM = ['OFF', r'$\alpha$ 1', r'$\alpha$ 2', r'+ $\rho$', '+ IIR', "SETTLE"]
 
 
         # axes_zpr[0].set_xlabel(r'Time ($\mu$s)', fontsize=12)
@@ -359,18 +371,6 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
             plt.show()
 
 
-    return {
-        "PN_out (dBc/Hz)": round(marker_dB_avg, 3),
-        "PN_IN (dBc/Hz)": round(marker_dB_tdc, 3),
-        "jitter_in_band (fs)": round(jitter_rms_segundos * 1e15, 3),
-        "jitter_all_band (fs)": round(jitter_rms_segundos_all * 1e15, 3),
-        "drift_max_ble (Hz)": round(ble_complice['max_drift'], 3),
-        "drift_max_hist (Hz)": np.round(np.max((result["f_smooth"] - f_req_array)), 3),
-        "f_deviation (Hz)": round(ble_complice['f_ref_deviation_hz'], 3),
-        "peak_psd (dBc/Hz)": np.round(np.max(Xdb_o), 3),
-        "status_drift": ble_complice['status_drift'],
-        "status_rate": ble_complice['status_rate'],
-        "status_f_ref_deviation": ble_complice['status_f_ref_deviation']
-    }
+    return ret
 
             
