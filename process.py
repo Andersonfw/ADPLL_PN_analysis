@@ -16,11 +16,11 @@ import utilities as ut
 
 
 
-def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_required, time_cut_PN_start, fsm_file, bank_files, phe, otw, i_stop_ckv, i_stop_banks,plot_all=true, IEEE_en=false, PN_analysis=true):
+def process(t_edges, window_time, time_cut_freq_anal_start, time_cut_freq_anal_stop, f_required, time_cut_PN_start, fsm_file, bank_files, phe, otw, i_stop_ckv, i_stop_banks,plot_all=true, IEEE_en=false, PN_analysis=true):
 
-    result = fn.edges_convert_to_freq_out_analyses(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop) 
+    result = fn.edges_convert_to_freq_out_analyses(t_edges, window_time, time_cut_freq_anal_start, time_cut_freq_anal_stop) 
 
-    ble_complice = fn.edges_convert_to_freq_ble_compliance(t_edges, time_cut_plot_start, f_required)
+    ble_complice = fn.edges_convert_to_freq_ble_compliance(t_edges, time_cut_freq_anal_start, f_required)
 
 
     time_x_axis = result["t_edges_cut"][:len(result["f_smooth"])] * 1e6
@@ -170,11 +170,12 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
         # Tamanho padrão para 1 coluna do template IEEE (aprox. 3.5 polegadas de largura) (3.5,2.8)
         # A4 size 210 × 297 mm (8.27 × 11.69 inches)
         # two figures same page 2 * (6,3.8)   proporção 1.58 1.5 ~ 1.6 
-        pn_plot, ax_pn = plt.subplots(figsize=(5,2.8))
+        pn_plot, ax_pn = plt.subplots(nrows=2, ncols=1, figsize=(5, 5),sharex=True)
+        # pn_plot, ax_pn = plt.subplots(figsize=(5,2.8))
         fsm_plot, ax_fsm = plt.subplots(figsize=(5,2.8))
-        spurs_plot, ax_spurs = plt.subplots(figsize=(5,2.8))
+        # spurs_plot, ax_spurs = plt.subplots(figsize=(5,2.8))
         freq_plot, axs_freq = plt.subplots(nrows=2, ncols=2, figsize=(6.2, 5))
-        zpr_plot, axes_zpr = plt.subplots(nrows=3, ncols=1, figsize=(6.2, 5),sharex=True)
+        zpr_plot, axes_zpr = plt.subplots(nrows=3, ncols=1, figsize=(5, 5),sharex=True)
         hist_plot, ax_hist = plt.subplots(figsize=(5,2.8))
 
         #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -184,7 +185,7 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
         FONT_TICKS = 8
 
         label1 = "Frequency error at the output"
-        axs_freq[0, 0].plot(time_x_axis, (result["f_smooth"]- f_req_array)/1e3, label=label1, color='red')
+        axs_freq[0, 0].plot(time_x_axis[:i_stop_ckv], (result["f_smooth"][:i_stop_ckv]- f_req_array)/1e3, label=label1, color='red')
         axs_freq[0, 0].grid(visible=True)
         axs_freq[0, 0].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL)
         axs_freq[0, 0].set_xlabel(r'Time ($\mu$s)', fontsize=FONT_LABEL)
@@ -290,7 +291,7 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
         axes_zpr[2].plot(  bank_files[0] * 1e6, bank_files[2], label=f"AQ Bank", color='green')
         axes_zpr[2].plot(  bank_files[0] * 1e6, bank_files[3], label=f"TB Bank", color='red')
         axes_zpr[2].grid(visible=True)
-        axes_zpr[2].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL)
+        axes_zpr[2].legend(facecolor='white', framealpha=1, fontsize=FONT_LABEL, loc='lower right')
         axes_zpr[2].set_xlabel(r'Time ($\mu$s)', fontsize=FONT_LABEL)
         axes_zpr[2].set_ylabel('Capacitor bank value', fontsize=FONT_LABEL)
         axes_zpr[2].tick_params(axis='x', labelsize=FONT_TICKS)
@@ -306,28 +307,29 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
         FONT_TICKS = 8
 
         label1 = "Phase Noise"
-        ax_pn.semilogx(f , Xdb_o , label=label1)
-        ax_pn.scatter(marker, marker_dB, color='black', marker='o',s=30, zorder=3, label=f'{marker_dB_avg:.2f} dBc/Hz  @1 MHz')
-        ax_pn.scatter(marker_tdc, marker_dB_tdc, color='red', marker='o',s=30, zorder=3, label=f'{marker_dB_tdc:.2f} dBc/Hz  @10 kHz')
-        ax_pn.grid(visible=True)
-        ax_pn.legend( facecolor='white',framealpha=1, fontsize=FONT_LABEL)
-        ax_pn.set_yticks([-160, -150, -140, -130, -120, -110, -100, -90, -80, -70])
-        ax_pn.tick_params(axis='x', labelsize=FONT_TICKS)
-        ax_pn.tick_params(axis='y', labelsize=FONT_TICKS)
-        ax_pn.set_xlabel('Frequency Offset (Hz)', fontsize=FONT_LABEL)
-        ax_pn.set_ylabel(label1 + ' [dBc/Hz]', fontsize=FONT_LABEL)
+        ax_pn[0].semilogx(f , Xdb_o , label=label1)
+        ax_pn[0].scatter(marker, marker_dB, color='blue', marker='o',s=30, zorder=3, label=f'{marker_dB_avg:.2f} dBc/Hz  @1 MHz')
+        ax_pn[0].scatter(marker_tdc, marker_dB_tdc, color='red', marker='o',s=30, zorder=3, label=f'{marker_dB_tdc:.2f} dBc/Hz  @10 kHz')
+        ax_pn[0].grid(visible=True)
+        ax_pn[0].legend( facecolor='white',framealpha=1, fontsize=FONT_LABEL)
+        ax_pn[0].set_yticks([-160, -150, -140, -130, -120, -110, -100, -90, -80, -70])
+        ax_pn[0].tick_params(axis='x', labelsize=FONT_TICKS)
+        ax_pn[0].tick_params(axis='y', labelsize=FONT_TICKS)
+        # ax_pn[0].set_xlabel('Frequency Offset (Hz)', fontsize=FONT_LABEL)
+        ax_pn[0].set_ylabel(label1 + ' [dBc/Hz]', fontsize=FONT_LABEL)
 
 
-        label1 = "Spur Power "
-        ax_spurs.semilogx(spurs_f , spurs_dbc - offset_spurs , label=label1)
-        ax_spurs.grid(visible=True)
-        ax_spurs.legend( facecolor='white', framealpha=1, fontsize=FONT_LABEL)
-        ax_spurs.set_yticks([-170,-160, -150, -140, -130, -120, -110, -100, -90, -80, -70])
-        ax_spurs.set_ylim([-180, -70])
-        ax_spurs.tick_params(axis='x', labelsize=FONT_TICKS)
-        ax_spurs.tick_params(axis='y', labelsize=FONT_TICKS)
-        ax_spurs.set_xlabel('Frequency Offset (Hz)', fontsize=FONT_LABEL)
-        ax_spurs.set_ylabel(label1 + ' [dBc]', fontsize=FONT_LABEL)
+        label1 = "Spur Level "
+        # ax_pn[1].semilogx(spurs_f , spurs_dbc - offset_spurs , label=label1)
+        ax_pn[1].semilogx(L_freq , L_pn , label=label1)
+        ax_pn[1].grid(visible=True)
+        ax_pn[1].legend( facecolor='white', framealpha=1, fontsize=FONT_LABEL)
+        # ax_pn[1].set_yticks([-170,-160, -150, -140, -130, -120, -110, -100, -90, -80, -70])
+        # ax_pn[1].set_ylim([-180, -70])
+        ax_pn[1].tick_params(axis='x', labelsize=FONT_TICKS)
+        ax_pn[1].tick_params(axis='y', labelsize=FONT_TICKS)
+        ax_pn[1].set_xlabel('Frequency Offset (Hz)', fontsize=FONT_LABEL)
+        ax_pn[1].set_ylabel(label1 + ' [dBc]', fontsize=FONT_LABEL)
 
         pn_plot.set_layout_engine('tight')
         # plt.tight_layout()  
@@ -343,7 +345,7 @@ def process(t_edges, window_time, time_cut_plot_start, time_cut_plot_stop, f_req
                 try:
                     # Tenta salvar todas as figuras em lote
                     pn_plot.savefig(r'C:\Users\ander\OneDrive - Associacao Antonio Vieira\Mestrado\ADPLL_PN_analysis\img\pn.pdf',  dpi=600, bbox_inches='tight', format='pdf')
-                    spurs_plot.savefig(r'C:\Users\ander\OneDrive - Associacao Antonio Vieira\Mestrado\ADPLL_PN_analysis\img\spurs.pdf',  dpi=600, bbox_inches='tight', format='pdf')
+                    # spurs_plot.savefig(r'C:\Users\ander\OneDrive - Associacao Antonio Vieira\Mestrado\ADPLL_PN_analysis\img\spurs.pdf',  dpi=600, bbox_inches='tight', format='pdf')
                     freq_plot.savefig(r'C:\Users\ander\OneDrive - Associacao Antonio Vieira\Mestrado\ADPLL_PN_analysis\img\freq.pdf',  dpi=600, bbox_inches='tight', format='pdf')
                     zpr_plot.savefig(r'C:\Users\ander\OneDrive - Associacao Antonio Vieira\Mestrado\ADPLL_PN_analysis\img\zpr.pdf',  dpi=600, bbox_inches='tight', format='pdf')
                     hist_plot.savefig(r'C:\Users\ander\OneDrive - Associacao Antonio Vieira\Mestrado\ADPLL_PN_analysis\img\freq_drift_hist.pdf',  dpi=600, bbox_inches='tight', format='pdf')

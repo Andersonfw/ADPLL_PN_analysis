@@ -72,13 +72,15 @@ def adpll_spectrum(phase, fs):
     # 2. ANÁLISE DE RUÍDO DE FASE (WELCH TRADICIONAL)
     # Para ver o "chão" de ruído limpo (como no seu código original)
     # -------------------------------------------------------------------
-    nwin = len_x // 8 # 8 médias para limpar o ruído
+    # nwin = len_x // 8 # 8 médias para limpar o ruído
+    nwin = int(fs / 1e3)
     f_pn, Pxx_pn = signal.welch(
         phase, 
         fs=fs, 
-        window='hann', 
+        window='flattop', 
         nperseg=nwin, 
-        scaling='density' # Escala de DENSIDADE (para ler dBc/Hz)
+        scaling='spectrum', # Escala de DENSIDADE (para ler dBc/Hz)
+        detrend='linear'
     )
     L_pn_dBc_Hz = 10 * np.log10(Pxx_pn / 2)
     # --- PLOT ---
