@@ -11,7 +11,7 @@ CORNER = WORST or TYP or BEST
 SETTING = FPREDICT or FPREDICT_SDM1 or FPREDICT_SDM2
 TDC_DCO_CORNER =  WORST or TYP or BEST
 ### Example 
-Simulations with a frequency desired at 2.402 Ghz, worst corner, and with FPREDICT and SDM2 enable and with TDC and DCO model running on a TYP corner.
+Simulations with a frequency desired at 2.402 GHz, worst corner, and with FPREDICT and SDM2 enable and with TDC and DCO model running on a TYP corner.
 
 FREQ = 2402 
 CORNER = WORST
