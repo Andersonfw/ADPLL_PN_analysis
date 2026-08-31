@@ -23,22 +23,6 @@ import utilities as ut
 IEEE_PICTURES = false
 PN_ANALYSIS = TRUE
 
-SIM_MODE = 9
-"""
-    SIM_MODE = 0: Typical Corner
-    SIM_MODE = 1: Slow Corner
-    SIM_MODE = 2: Fast Corner
-    SIM_MODE = 3: FUTURE USE
-    SIM_MODE = 4: ALL OFF
-
-    SIM_MODE = 5: FREF
-    SIM_MODE = 6: SDM 1 Ordem
-    SIM_MODE = 7: SDM 2 Ordem 
-    SIM_MODE = x: DEFAULT SIMULATION
-"""
-
-
-
 window_time = 0.5e-6  # Tamanho da janela para suavização (1us para BLE)
 time_cut_PN_start = 2.5e-04
 time_cut_freq_anal_start = time_cut_PN_start#5.0e-4 #1.2e-04
@@ -46,10 +30,11 @@ time_cut_freq_anal_stop = time_cut_freq_anal_start + 120e-6
 
 FREQ = "2418123" #2402 2440 2418123 2480
 CORNER = "TYP" # WORST TYP BEST
-SETTING = "FPREDICT" # FPREDICT FPREDICT_SDM1 FPREDICT_SDM2
+SETTING = "FPREDICT_SDM1" # FPREDICT FPREDICT_SDM1 FPREDICT_SDM2
+TDC_DCO_CORNER = "TYP" # TDC DCO
 # path_string = "data/"+freq
 # path_string = "data/TYP/2480_WORST/FPREDICT"
-path_string = "data/TYP/"+FREQ+"_"+CORNER+"/"+SETTING
+path_string = "data/"+TDC_DCO_CORNER+"/"+FREQ+"_"+CORNER+"/"+SETTING
 # path_string = "data/SIM_DATA" 
 data_path = path(path_string)
 
@@ -64,47 +49,7 @@ f_required = freq_atual * 1e6 #2.440e9 #2.39205e9 #2.402e9 #   #np.mean(fout[1])
 # --- load Files ---
 fsm_path = ut.get_latest_file(data_path, "fsm_states", "csv")
 fsm_file = pd.read_csv(fsm_path, sep=';', header=None)
-
-
-
-
-
-
-if  SIM_MODE == 0:
-    t_edges_path = ut.get_latest_file(data_path, "close_loop_edge_times_typ", "txt")  
-#-----------------------------------------------------------------------------------------------#
-elif SIM_MODE == 1:
-    t_edges_path = ut.get_latest_file(data_path, "close_loop_edge_times_worst", "txt")
-#-----------------------------------------------------------------------------------------------#
-elif SIM_MODE == 2:
-    t_edges_path = ut.get_latest_file(data_path, "close_loop_edge_times_best", "txt")
-#-----------------------------------------------------------------------------------------------#
-elif SIM_MODE == 4:
-    # bank_path    = ut.get_latest_file(data_path+"/ALL_OFF", "bank_cap", "csv")
-    # t_edges_path = ut.get_latest_file(data_path+"/ALL_OFF", "close_loop_edge_times_typ", "txt")
-    t_edges_name = "close_loop_edge_times_typ"
-    data_path = path("data/"+FREQ+"/ALL_OFF")
-#-----------------------------------------------------------------------------------------------#
-elif SIM_MODE == 5:
-    # bank_path    = ut.get_latest_file(data_path, "bank_cap_SDM_off", "csv")
-    # t_edges_path = ut.get_latest_file(data_path, "close_loop_edge_times_typ_SDM_off", "txt")
-    t_edges_name = "close_loop_edge_times_typ"
-    data_path = path("data/"+FREQ+"/FREF")
-#-----------------------------------------------------------------------------------------------#
-elif SIM_MODE == 6:
-    # bank_path =    ut.get_latest_file(data_path, "bank_cap_SDM_1_en", "csv")
-    # t_edges_path = ut.get_latest_file(data_path, "close_loop_edge_times_typ_SDM_1_en", "txt")
-    t_edges_name = "close_loop_edge_times_typ"
-    data_path = path("data/"+FREQ+"/SDM1")
-#-----------------------------------------------------------------------------------------------#
-elif SIM_MODE == 7:
-    # bank_path =   ut.get_latest_file(data_path, "bank_cap_SDM_2_en", "csv")
-    # t_edges_path = ut.get_latest_file(data_path, "close_loop_edge_times_typ_SDM_2_en", "txt")
-    t_edges_name = "close_loop_edge_times_typ"
-    data_path = path("data/"+FREQ+"/SDM2")
-#-----------------------------------------------------------------------------------------------#
-else:
-    t_edges_name = "close_loop_edge_times_"
+t_edges_name = "close_loop_edge_times_"
 
 t_edges_path  = ut.get_latest_file(data_path, t_edges_name, "txt")
 bank_path     = ut.get_latest_file(data_path, "bank_cap", "csv")
