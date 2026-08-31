@@ -18,4 +18,4 @@ CORNER = WORST
 SETTING = FPREDICT_SDM2
 TDC_DCO_CORNER =  TYP
 
-The files data path is: data\TYP\2402_TYP\FPREDICT_SDM2
+The files data path is: data\TYP\2402_WORST\FPREDICT_SDM2
