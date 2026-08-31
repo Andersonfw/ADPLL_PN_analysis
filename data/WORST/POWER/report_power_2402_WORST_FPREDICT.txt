@@ -1,0 +1,1173 @@
+Using Power View analysis_view_0p81v_125c_capwst_slowest
+.
+AAE_INFO: opIsDesignInPostRouteState() is 1
+AAE DB initialization (MEM=56000.800781 CPU=0:00:00.0 REAL=0:00:00.0) 
+AAE_INFO: resetNetProps viewIdx 0 
+Starting SI iteration 1 using Infinite Timing Windows
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: adpll
+# Design Mode: 28nm
+# Analysis Mode: MMMC OCV (AOCV)
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI On 
+#################################################################################
+Extraction called for design 'adpll' of instances=18226 and nets=12502 using extraction engine 'post_route' at effort level 'signoff' .
+
+
+  Cadence Quantus Extraction - 64-bit Parasitic Extractor - Version
+23.1.1-s336 Mon Jan 20 22:24:34 PST 2025
+---------------------------------------------------------------------------------------------------------------
+                                  Copyright 2025 Cadence Design Systems,
+Inc.
+
+
+
+INFO (EXTQRCXLOG-128) : Quantus command line:
+ Started at: 2026-Jul-20 22:00:33 (2026-Jul-21 01:00:33 GMT)
+ Executable:
+/home/cadence/DDIEXPORT23/INNOVUS231/tools.lnx86/extraction/bin/64bit/qrc
+ Options:     -cmd
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.cmd
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.def.gz
+ Current working directory:
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work
+
+
+INFO (EXTQRCXLOG-103) : The Command File Options for the current Quantus run are as follows:
+
+distributed_processing \
+	 -multi_cpu 50
+extract \
+	 -selection "all" \
+	 -type "rc_coupled"
+extraction_setup \
+	 -layout_scale 0.9 \
+	 -promote_pin_pad "LOGICAL"
+filter_coupling_cap \
+	 -cap_filtering_mode "absolute_and_relative" \
+	 -coupling_cap_threshold_absolute 0.1 \
+	 -coupling_cap_threshold_relative 1.0 \
+	 -total_cap_threshold 0.0
+input_db -type def \
+	 -lef_file_list_file "/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.leflist"
+log_file \
+	 -dump_options true \
+	 -file_name "qrc_378650_20260720_22:00:32_539.log"
+output_db -type spef \
+	 -short_incomplete_net_pins true \
+	 -subtype "STARN"
+output_setup \
+	 -compressed true \
+	 -directory_name "/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np" \
+	 -file_name "adpll" \
+	 -temporary_directory_name "/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np"
+process_technology \
+	 -technology_corner \
+		"rc_corner_125c_capwst" \
+	 -technology_library_file "/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/_qrc_techlib.defs" \
+	 -technology_name "_qrc_tech_" \
+	 -temperature \
+		"125"
+
+
+INFO (EXTGRMP-102) : Starting at 2026-Jul-20 22:00:33 (2026-Jul-21 01:00:33 GMT) on host
+asav-204-148.unisinos.br with pid 688398.
+Running binary as: 
+ /home/cadence/DDIEXPORT23/INNOVUS231/tools.lnx86/extraction/bin/64bit/qrc
+-cmd
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/__qrc.qrc.cmd
+-multi_cpu 50
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.def.gz
+ 
+
+WARNING (EXTGRMP-414) : No GDSII/OASIS file is specified. Setting graybox type as LEF_OBSTRUCTION.
+
+WARNING (EXTGRMP-819) : The starN output flavor is requested with disable subnode true option. Disable subnode true option is conflicting with starN output flavour so is turned off.
+
+INFO (EXTGRMP-142) : Command line arguments:
+"-cmd"
+"/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/__qrc.qrc.cmd"
+"-multi_cpu"
+"50"
+"/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.def.gz"
+
+INFO (EXTGRMP-143) : Option extraction_setup -copy_port_to_obs = "true"
+
+INFO (EXTGRMP-143) : Option log_file = "qrc_378650_20260720_22:00:32_539.log"
+
+INFO (EXTGRMP-143) : Option log_file -message_config_file = ""
+
+INFO (EXTGRMP-143) : Option log_file -max_error_messages = "100"
+
+INFO (EXTGRMP-143) : Option log_file -max_warning_messages = "10"
+
+INFO (EXTGRMP-143) : Option log_file -max_info_messages = "1000"
+
+INFO (EXTGRMP-143) : Option process_technology -technology_name = ""
+
+INFO (EXTGRMP-143) : Option EM_techname = ""
+
+INFO (EXTGRMP-143) : Option process_technology -EM_WEE_clamping_factor = "0.7"
+
+INFO (EXTGRMP-143) : Option input_db -libgen_library_name = ""
+
+INFO (EXTGRMP-143) : Option oa_default_rule_name = ""
+
+INFO (EXTGRMP-143) : Option graybox -type = "obs"
+
+INFO (EXTGRMP-143) : Option graybox -use_macro_density = "false"
+
+INFO (EXTGRMP-143) : Option comp_prealloc = "0"
+
+INFO (EXTGRMP-143) : Option net_prealloc = "0"
+
+INFO (EXTGRMP-143) : Option output_setup -directory_name =
+"/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np"
+
+INFO (EXTGRMP-143) : Option output_db -units = "micron"
+
+INFO (EXTGRMP-143) : Option user_comment = ""
+
+INFO (EXTGRMP-143) : Option output_cache_directory_name =
+"/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/.qrctemp"
+
+INFO (EXTGRMP-143) : Option keep_temporary_files = "false"
+
+INFO (EXTGRMP-143) : Option output_density_tiles = "false"
+
+INFO (EXTGRMP-143) : Option output_setup -file_name = "adpll"
+
+INFO (EXTGRMP-143) : Option output_db -type spef -predefined_spef_cells_file = ""
+
+INFO (EXTGRMP-143) : Option parasitic_reduction -enable_reduction = "false"
+
+INFO (EXTGRMP-143) : Option debug_log = "false"
+
+INFO (EXTGRMP-143) : Option output_db -type spef -subtype = "generic"
+
+INFO (EXTGRMP-143) : Option output_db -type dspf -subtype = "none"
+
+INFO (EXTGRMP-143) : Option output_sstorm_db_name = ""
+
+INFO (EXTGRMP-143) : Option netlist_output = "none"
+
+INFO (EXTGRMP-143) : Option output_db -type coupling_cap_reports = "false"
+
+INFO (EXTGRMP-143) : Option output_db -type rcdb = "false"
+
+INFO (EXTGRMP-143) : Option output_db -hierarchy_delimiter = "/"
+
+INFO (EXTGRMP-143) : Option output_db -busbit_delimiter = "[]"
+
+INFO (EXTGRMP-143) : Option output_db -pin_delimiter = ":"
+
+INFO (EXTGRMP-143) : Option output_db -output_incomplete_nets_type = "no_pin one_pin
+disconnected_pin multiple_partitions floating_resistors"
+
+INFO (EXTGRMP-143) : Option truncate_regular_wires = "false"
+
+INFO (EXTGRMP-143) : Option extraction_setup -layout_scale = "0.9"
+
+INFO (EXTGRMP-143) : Option output_setup -file_max_size = "9223372036854775807"
+
+INFO (EXTGRMP-143) : Option log_file -dump_options = "true"
+
+INFO (EXTGRMP-143) : Option short_incomplete_net_pins = "true"
+
+INFO (EXTGRMP-143) : Option promote_incomplete_net_pins = "true"
+
+INFO (EXTGRMP-143) : Option output_db -output_incomplete_nets = "true"
+
+INFO (EXTGRMP-143) : Option output_db -output_unrouted_nets = "false"
+
+INFO (EXTGRMP-143) : Option output_db -escape_special_characters = "true"
+
+INFO (EXTGRMP-143) : Option lumped_cc_threshold = "0.0"
+
+INFO (EXTGRMP-143) : Option parasitic_reduction -max_frequency = "1.0e+08"
+
+INFO (EXTGRMP-143) : Option output_setup -compressed = "true"
+
+INFO (EXTGRMP-143) : Option max_resistor_length = "100.0"
+
+INFO (EXTGRMP-143) : Option promote_feedthru_ports = "none"
+
+INFO (EXTGRMP-143) : Option promote_instance_ports = "none"
+
+INFO (EXTGRMP-143) : Option output_promoted_feedthrus = "false"
+
+INFO (EXTGRMP-143) : Option output_unconnected_pins = "false"
+
+INFO (EXTGRMP-143) : Option remove_floating_metals = "false"
+
+INFO (EXTGRMP-143) : Option promote_pin_pad = "logical"
+
+INFO (EXTGRMP-143) : Option eco_compatible_mode = "false"
+
+INFO (EXTGRMP-143) : Option output setup   -max_message_in_shorts_file = "100"
+
+INFO (EXTGRMP-143) : Option cap_mode_2915 = "true"
+
+INFO (EXTGRMP-143) : Option quickcap_file = "false"
+
+INFO (EXTGRMP-143) : Option ict_file = "process.ict"
+
+INFO (EXTGRMP-143) : Option quickcap_netfile = "qapi.net"
+
+INFO (EXTGRMP-143) : Option lefcap_output = "false"
+
+INFO (EXTGRMP-143) : Option lefcap_scale = "1.25"
+
+INFO (EXTGRMP-143) : Option lefres_output = "false"
+
+INFO (EXTGRMP-143) : Option kfactor_file = ""
+
+INFO (EXTGRMP-143) : Option total_c_threshold = "0"
+
+INFO (EXTGRMP-143) : Option relative_c_threshold = "1"
+
+INFO (EXTGRMP-143) : Option output_cap_filtering_mode = "relative_and_coupling"
+
+INFO (EXTGRMP-143) : Option cap_mode = "default"
+
+INFO (EXTGRMP-143) : Option parallel_options = ""
+
+INFO (EXTGRMP-143) : Option load_optimized_views = "true"
+
+INFO (EXTGRMP-143) : Option enable_metal_fill_effects = "true"
+
+INFO (EXTGRMP-143) : Option metal_fill -enable_advanced_virtual_fill = "false"
+
+INFO (EXTGRMP-143) : Option metal_fill -type = "floating"
+
+INFO (EXTGRMP-143) : Option vmf_metal_scheme_file = ""
+
+INFO (EXTGRMP-143) : Option vmf_rule_file = ""
+
+INFO (EXTGRMP-143) : Option extraction_setup -ignore_conn_to_bump = "true"
+
+INFO (EXTGRMP-143) : Option extraction_setup -lic_queue = "0"
+
+INFO (EXTGRMP-143) : Option extraction_setup -cerebrus_license_only = "false"
+
+INFO (EXTGRMP-143) : Option input_db -type metal_fill -gds_file = ""
+
+INFO (EXTGRMP-143) : Option density_check_method = "none"
+
+INFO (EXTGRMP-143) : Option process_technology -technology_corner = "rc_corner_125c_capwst"
+
+INFO (EXTGRMP-143) : Option process_technology -EM_technology_corner = ""
+
+INFO (EXTGRMP-143) : Option process_technology -temperature = "125"
+
+INFO (EXTGRMP-143) : Option promote_gray_data_pins = "false"
+
+INFO (EXTGRMP-143) : Option extraction_setup -enable_layer_bias = "false"
+
+INFO (EXTGRMP-143) : Option output_db -map_eeq_to_master = "false"
+
+INFO (EXTGRMP-143) : Option output_db -match_res_cap = "false"
+
+INFO (EXTGRMP-143) : Option merge_tile_boundary_data = "true"
+
+INFO (EXTGRMP-143) : Option coupling_c_threshold = "0.1"
+
+INFO (EXTGRMP-143) : Option use_icecaps_models_only = "false"
+
+INFO (EXTGRMP-143) : Option output_db -type spef -use_name_map = "true"
+
+INFO (EXTGRMP-143) : Option output_db -type spef -name_map_start_index = "0"
+
+INFO (EXTGRMP-143) : Option distributed_processing -timeout = "300"
+
+INFO (EXTGRMP-143) : Option distributed_processing -num_of_trials = "0"
+
+INFO (EXTGRMP-143) : Option output_db -type dspf -add_cap_prefix = "false"
+
+INFO (EXTGRMP-143) : Option output_db -type oa = "false"
+
+INFO (EXTGRMP-143) : Option oa_analysis_point = "default"
+
+INFO (EXTGRMP-143) : Option extraction_setup -enable_sensitivity_extraction = "false"
+
+INFO (EXTGRMP-143) : Option report_details = "false"
+
+INFO (EXTGRMP-143) : Option input_db -type metal_fill -offset_x = "0.0"
+
+INFO (EXTGRMP-143) : Option input_db -type metal_fill -offset_y = "0.0"
+
+INFO (EXTGRMP-143) : Option extraction_setup -ignore_pushdown_blockages = "false"
+
+INFO (EXTGRMP-143) : Option output_setup -compress_temporary_files = "true"
+
+INFO (EXTGRMP-143) : Option strong_gray_debug = "false"
+
+INFO (EXTGRMP-143) : Option output_db -disable_instances = "true"
+
+INFO (EXTGRMP-143) : Option output_db -disable_subnodes = "false"
+
+INFO (EXTGRMP-143) : Option output_db -type coupling_cap_reports -dump_erosion_info = ""
+
+INFO (EXTGRMP-143) : Option output_db -include_parasitic_res_width_drawn = "false"
+
+INFO (EXTGRMP-143) : Option output_db -include_parasitic_res_parameters_unscaled = "false"
+
+INFO (EXTGRMP-143) : Option enable_active_fill_via_processing = "false"
+
+INFO (EXTGRMP-143) : Option output_db -add_explicit_vias = "false"
+
+INFO (EXTGRMP-143) : Option output_db -include_parasitic_cap_layers = "false"
+
+INFO (EXTGRMP-143) : Option capacitance -ground_net = "0"
+
+INFO (EXTGRMP-143) : Option output_db -include_parasitic_res_temp_coeff = "false"
+
+INFO (EXTGRMP-143) : Option output_setup -write_coupled_decoupled_files = "false"
+
+INFO (EXTGRMP-143) : Option capacitance_coupling = "default"
+
+INFO (EXTGRMP-143) : Option extraction_setup -gds_top_cell = ""
+
+INFO (EXTGRMP-143) : Option input_db -directory_name = ""
+
+INFO (EXTGRMP-143) : Option binary_input = "false"
+
+INFO (EXTGRMP-143) : Option binary_output = "false"
+
+INFO (EXTGRMP-143) : Option output_setup -enable_ieee_sensitivity = "false"
+
+INFO (EXTGRMP-143) : Option input_db -bump_map_file = ""
+
+INFO (EXTGRMP-143) : Option extraction_setup -enable_bump_instance = "false"
+
+INFO (EXTGRMP-143) : Option extraction_setup -enable_tsv_instance = "false"
+
+INFO (EXTGRMP-143) : Option extraction_setup -enable_TSV_STA_Cc_model = "false"
+
+INFO (EXTGRMP-143) : Option extraction_setup -stitch_bump_model = "false"
+
+INFO (EXTGRMP-143) : Option extraction_setup -stitch_tsv_model = "none"
+
+INFO (EXTGRMP-143) : Option enable_eco_mode = "false"
+
+INFO (EXTGRMP-143) : Option eco_file = ""
+
+INFO (EXTGRMP-143) : Option override_eco_reference = "true"
+
+INFO (EXTGRMP-143) : Option analysis_mode = "timing"
+
+INFO (EXTGRMP-143) : Option use_lef_for_hierarchical_def = "false"
+
+INFO (EXTGRMP-143) : Option enable_ws_r_scaling = "false"
+
+INFO (EXTGRMP-143) : Option include_gate_forming_layers = "false"
+
+INFO (EXTGRMP-143) : Option log_file -strict_error_reporting = "false"
+
+INFO (EXTGRMP-143) : Option log_file -report_outside_die_area_object = "false"
+
+INFO (EXTGRMP-143) : Option report_outside_diearea_object_error_limit = "1"
+
+INFO (EXTGRMP-143) : Option change_overhang_direction = "false"
+
+INFO (EXTGRMP-143) : Option ubump_subckt_file = ""
+
+INFO (EXTGRMP-143) : Option tsv_subckt_file = ""
+
+INFO (EXTGRMP-143) : Option output_setup -write_drc_violations = "false"
+
+INFO (EXTGRMP-143) : Option log_file -max_drc_messages = "1000"
+
+INFO (EXTGRMP-143) : Option keep_ftv_terms = "false"
+
+INFO (EXTGRMP-143) : Option write_ftv_nets = "false"
+
+INFO (EXTGRMP-143) : Option first_hidden_option = "false"
+
+INFO (EXTGRMP-143) : Option LEF files =
+"/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tsmcn28_9lm5X1Y1Z1UUTRDL.tlef
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef"
+
+INFO (EXTGRMP-143) : Option DEF files =
+"/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.def.gz"
+
+INFO (EXTGRMP-143) : Option GDSII files = ""
+
+INFO (EXTGRMP-143) : Option GDSII/RDL files = ""
+
+INFO (EXTGRMP-143) : Option SPICE files = ""
+
+INFO (EXTGRMP-143) : Option DENSITY cells = ""
+
+INFO (EXTGRMP-143) : Option stitch bump cells = ""
+
+INFO (EXTGRMP-143) : Option ignored macros = ""
+
+INFO (EXTGRMP-143) : Option black macros = ""
+
+INFO (EXTGRMP-155) : Layer mappings were not specified.
+
+INFO (EXTGRMP-276) : Gds/Oasis Layer Map settings were not specified.
+
+INFO (EXTGRMP-548) : Gds/Oasis Fill layer Map settings were not specified.
+
+INFO (EXTGRMP-550) : Gds/Oasis Active Fill layer Map settings were not specified.
+
+INFO (EXTGRMP-562) : HPB layer settings were not specified.
+
+INFO (EXTGRMP-828) : Gds/Oasis InfoGds layer Map settings were not specified.
+
+INFO (EXTGRMP-623) : Background density layer mappings were not specified.
+
+INFO (EXTGRMP-144) : There were no layer bias commands for R values.
+
+INFO (EXTGRMP-147) : Layer bias settings for C values were not specified.
+
+INFO (EXTGRMP-149) : Lefcap area scale settings were not specified.
+
+INFO (EXTGRMP-153) : Lefcap edge scale settings were not specified.
+
+INFO (EXTGRMP-151) : Parameter name settings were not specified.
+
+INFO (EXTGRMP-260) : Layer cluster settings were not specified.
+
+INFO (EXTHPY-253) : Extraction started at Mon Jul 20 22:00:33 2026.
+
+INFO (EXTHPY-232) : Preprocessing stage started at Mon Jul 20 22:00:33 2026.
+
+INFO (EXTGRMP-854) : Local job on asav-204-148.unisinos.br obtained for resource 0 with 50 cores
+at 2026-Jul-20 22:00:34 (2026-Jul-21 01:00:34 GMT); 
+
+WARNING (EXTGRMP-860) : Maximum size of the process stack (stacksize) on host asav-204-148.unisinos.br is 268435456 bytes. Set it to a large value, preferably unlimited, to avoid any unexpected issues.
+
+
+INFO (EXTGRMP-205) : Reading DEF file: /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.def.gz
+
+INFO (EXTGRMP-336) : Reading technology data and cell definitions from LEF file:
+
+INFO (EXTGRMP-338) : /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tsmcn28_9lm5X1Y1Z1UUTRDL.tlef
+
+INFO (EXTGRMP-338) : /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef
+
+INFO (EXTGRMP-573) : Using layout scale factor specified in the tech file(s): 0.9
+
+WARNING (EXTGRMP-330) : LEF layer "PO" is not mapped with any tech file layer. Ignoring its definition. 
+An error will be issued if its definition is required.
+
+WARNING (EXTGRMP-605) : Layer "PO" will not be extracted and will be ignored.
+
+WARNING (EXTGRMP-330) : LEF layer "CO" is not mapped with any tech file layer. Ignoring its definition. 
+An error will be issued if its definition is required.
+
+WARNING (EXTGRMP-327) : The LEF parser reported the following warning :
+WARNING (LEFPARS-2001): No VERSION statement found, using the default value 5.8. See file /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef at line 272138.
+
+WARNING (EXTGRMP-768) : BUSBITCHARS missing in /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef file, therefore taking default value [] for BUSBITCHARS.
+
+WARNING (EXTGRMP-769) : DIVIDECHAR missing in /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef file, therefore taking default value / for DIVIDECHAR.
+
+INFO (EXTGRMP-195) : Reading VIAS section.
+
+INFO (EXTGRMP-195) : Reading COMPONENTS section.
+
+WARNING (EXTGRMP-184) : Gray-box mode -type lef_obstruction was selected for extraction, but 9 macro definitions did not include any obstruction data in LEF. The first 9 macros are:
+ BOUNDARY_LEFTBWP30P140 BOUNDARY_RIGHTBWP30P140 FILL16BWP30P140 FILL2BWP30P140 FILL32BWP30P140 FILL3BWP30P140 FILL4BWP30P140 FILL64BWP30P140 FILL8BWP30P140
+Check the library inputs and log files from library setup to determine whether there is a problem.
+
+WARNING (EXTGRMP-546) : Macro CKBD12BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro BUFFD3BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro DEL025D1BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro DEL075MD1BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro BUFFD0BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro CKBD4BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro CKBD1BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro CKBD2BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro CKBD6BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+WARNING (EXTGRMP-546) : Macro INVD1BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+
+INFO (EXTGRMP-195) : Reading PINS section.
+
+INFO (EXTGRMP-195) : Reading NETS section.
+
+INFO (EXTGRMP-195) : Reading SPECIALNETS section.
+
+INFO (EXTGRMP-248) : METAL FILL data is not available in DEF file.
+
+INFO (EXTGRMP-292) : Checking Command/Tech/License Files.
+
+INFO (EXTGRMP-281) : Manufacturing Data Information :- 
+  DEF/GDS/OASIS/LEF file 
+    does NOT contain MetalFill data. 
+  Techfile  
+    does     contain WEE data.     
+    does     contain Erosion data t=f( density ,width) 
+    does NOT contain R(w) data.    
+    does     contain R(w, s) data.  
+    does     contain TC(w) data.    
+    does     contain T/B enlargement data. 
+    does     contain Floating Metal Fill models. 
+    does NOT contain WBE data.
+
+INFO (EXTGRMP-613) : Turbo Reduction is now turned on by default.
+
+INFO (EXTGRMP-294) : RCs effects computed for this session include :- 
+ MetalFill        : OFF 
+ WEE Effects      : rc 
+ Erosion Effects  : Rule-Based Erosion Table: rc t=f(density,width) 
+ T/B Enlargements : ON 
+ R(w) Effects     : n/a 
+ R(w,s) Effects   : ON 
+ TC(w) Effects    : ON 
+Some effects indicate n/a because of non-availability of relevant input data (or) requested to be off.
+
+INFO (EXTGRMP-802) : Summary of license(s) checkout :
+	25 of QTS300, 1 of QTS310, 1 of QTS320
+
+INFO (EXTGRMP-207) : Reading DEF file completed successfully.
+
+INFO (EXTGRMP-211) : Reading geometric data from DEF file:
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/qrc.def.gz
+
+INFO (EXTSNZ-156) :    1%
+
+INFO (EXTSNZ-156) :    2%
+
+INFO (EXTSNZ-156) :    3%
+
+INFO (EXTSNZ-156) :    4%
+
+INFO (EXTSNZ-156) :    5%
+
+INFO (EXTSNZ-156) :    6%
+
+INFO (EXTSNZ-156) :    7%
+
+INFO (EXTSNZ-156) :    8%
+
+INFO (EXTSNZ-156) :    9%
+
+INFO (EXTSNZ-156) :    10%
+
+INFO (EXTSNZ-156) :    11%
+
+INFO (EXTSNZ-156) :    12%
+
+INFO (EXTSNZ-156) :    13%
+
+INFO (EXTSNZ-156) :    14%
+
+INFO (EXTSNZ-156) :    15%
+
+INFO (EXTSNZ-156) :    16%
+
+INFO (EXTSNZ-156) :    17%
+
+INFO (EXTSNZ-156) :    18%
+
+INFO (EXTSNZ-156) :    19%
+
+INFO (EXTSNZ-156) :    20%
+
+INFO (EXTSNZ-156) :    21%
+
+INFO (EXTSNZ-156) :    22%
+
+INFO (EXTSNZ-156) :    23%
+
+INFO (EXTSNZ-156) :    24%
+
+INFO (EXTSNZ-156) :    25%
+
+INFO (EXTSNZ-156) :    26%
+
+INFO (EXTSNZ-156) :    27%
+
+INFO (EXTSNZ-156) :    28%
+
+INFO (EXTSNZ-156) :    29%
+
+INFO (EXTSNZ-156) :    30%
+
+INFO (EXTSNZ-156) :    31%
+
+INFO (EXTSNZ-156) :    32%
+
+INFO (EXTSNZ-156) :    33%
+
+INFO (EXTSNZ-156) :    34%
+
+INFO (EXTSNZ-156) :    35%
+
+INFO (EXTSNZ-156) :    36%
+
+INFO (EXTSNZ-156) :    37%
+
+INFO (EXTSNZ-156) :    38%
+
+INFO (EXTSNZ-156) :    39%
+
+INFO (EXTSNZ-156) :    40%
+
+INFO (EXTSNZ-156) :    41%
+
+INFO (EXTSNZ-156) :    42%
+
+INFO (EXTSNZ-156) :    43%
+
+INFO (EXTSNZ-156) :    44%
+
+INFO (EXTSNZ-156) :    45%
+
+INFO (EXTSNZ-156) :    46%
+
+INFO (EXTSNZ-156) :    47%
+
+INFO (EXTSNZ-156) :    48%
+
+INFO (EXTSNZ-156) :    49%
+
+INFO (EXTSNZ-156) :    50%
+
+INFO (EXTSNZ-156) :    51%
+
+INFO (EXTSNZ-156) :    52%
+
+INFO (EXTSNZ-156) :    53%
+
+INFO (EXTSNZ-156) :    54%
+
+INFO (EXTSNZ-156) :    55%
+
+INFO (EXTSNZ-156) :    56%
+
+INFO (EXTSNZ-156) :    57%
+
+INFO (EXTSNZ-156) :    58%
+
+INFO (EXTSNZ-156) :    59%
+
+INFO (EXTSNZ-156) :    60%
+
+INFO (EXTSNZ-156) :    61%
+
+INFO (EXTSNZ-156) :    62%
+
+INFO (EXTSNZ-156) :    63%
+
+INFO (EXTSNZ-156) :    64%
+
+INFO (EXTSNZ-156) :    65%
+
+INFO (EXTSNZ-156) :    66%
+
+INFO (EXTSNZ-156) :    67%
+
+INFO (EXTSNZ-156) :    68%
+
+INFO (EXTSNZ-156) :    69%
+
+INFO (EXTSNZ-156) :    70%
+
+INFO (EXTSNZ-156) :    71%
+
+INFO (EXTSNZ-156) :    72%
+
+INFO (EXTSNZ-156) :    73%
+
+INFO (EXTSNZ-156) :    74%
+
+INFO (EXTSNZ-156) :    75%
+
+INFO (EXTSNZ-156) :    76%
+
+INFO (EXTSNZ-156) :    77%
+
+INFO (EXTSNZ-156) :    78%
+
+INFO (EXTSNZ-156) :    79%
+
+INFO (EXTSNZ-156) :    80%
+
+INFO (EXTSNZ-156) :    81%
+
+INFO (EXTSNZ-156) :    82%
+
+INFO (EXTSNZ-156) :    83%
+
+INFO (EXTSNZ-156) :    84%
+
+INFO (EXTSNZ-156) :    85%
+
+INFO (EXTSNZ-156) :    86%
+
+INFO (EXTSNZ-156) :    87%
+
+INFO (EXTSNZ-156) :    88%
+
+INFO (EXTSNZ-156) :    89%
+
+INFO (EXTSNZ-156) :    90%
+
+INFO (EXTSNZ-156) :    91%
+
+INFO (EXTSNZ-156) :    92%
+
+INFO (EXTSNZ-156) :    93%
+
+INFO (EXTSNZ-156) :    94%
+
+INFO (EXTSNZ-156) :    95%
+
+INFO (EXTSNZ-156) :    96%
+
+INFO (EXTSNZ-156) :    97%
+
+INFO (EXTSNZ-156) :    98%
+
+INFO (EXTSNZ-156) :    99%
+
+INFO (EXTGRMP-213) : Reading geometric data from DEF completed successfully.
+
+INFO (EXTHPY-101) : Initializing gray data from all cell instances for capacitance extraction.
+
+INFO (EXTHPY-102) : Processing of gray data completed successfully.
+
+INFO (EXTHPY-156) : Gray pins that are touching or overlapping extracted nets will be treated as gray data during extraction.
+
+INFO (EXTHPY-233) : Preprocessing stage completed successfully at Mon Jul 20 22:00:47 2026 with 50 CPU(s).
+
+INFO (EXTHPY-247) : Preprocessing stage:
+ Duration: 00:00:14, Max (Total) memory: 9670 MB
+ Max (CPU) memory: 645 MB, Max (CPU) time: 00:00:01
+
+INFO (EXTHPY-173) : Capacitance extraction started at Mon Jul 20 22:00:47 2026.
+
+INFO (EXTHPY-103) : Extracting capacitance values.
+
+INFO (EXTHPY-267) :  
+ DESIGN                       : adpll
+ DEF/OA DIEAREA BBOX          : 0 0 274960 274000
+ DEF/OA UNITS                 : 2000
+ FINAL SCALE FACTOR           : 0.9
+ 
+ ESTIMATED COMPRESSED DEF SIZE: 1875371
+ TILE SIZE                    : 50x50 squm
+ TILE COUNT                   : 9
+ CLUSTER SIZE                 : 251
+ CAPDB PARTITIONS             : 64
+
+INFO (EXTHPY-104) :    0%
+
+INFO (EXTHPY-104) :    100%
+
+INFO (EXTHPY-174) : Capacitance extraction completed successfully at Mon Jul 20 22:00:50 2026 with 50 CPU(s).
+
+INFO (EXTHPY-248) : Capacitance extraction:
+ Duration: 00:00:03, Max (Total) memory: 9852 MB
+ Max (CPU) memory: 647 MB, Max (CPU) time: 00:00:03
+
+INFO (EXTHPY-175) : Output generation started at Mon Jul 20 22:00:50 2026.
+
+INFO (EXTSNZ-156) :    0%
+
+INFO (EXTHPY-176) : Output generation completed successfully at Mon Jul 20 22:00:52 2026 with 50 CPU(s).
+
+INFO (EXTHPY-249) : Output generation:
+ Duration: 00:00:02, Max (Total) memory: 9925 MB
+ Max (CPU) memory: 664 MB, Max (CPU) time: 00:00:01
+
+INFO (EXTGRMP-854) : NOTE: Using advanced paramter1: 1013
+
+INFO (EXTGRMP-854) : NOTE: Using advanced paramter2: 1.20673 (from techfile)
+
+INFO (EXTGRMP-854) : NOTE: Using advanced paramter3: YES
+
+WARNING (EXTGRMP-574) : There are 26 unrouted nets. 
+Please check file *.incompletenets in your output directory for details.
+
+INFO (EXTHPY-254) : Extraction completed successfully at Mon Jul 20 22:00:54 2026.
+
+INFO (EXTHPY-143) : ---Summary of Stage Duration
+ Preprocessing stage:
+ Duration: 00:00:14, Max (Total) memory: 9670 MB
+ Max (CPU) memory: 645 MB, Max (CPU) time: 00:00:01
+ Capacitance extraction:
+ Duration: 00:00:03, Max (Total) memory: 9852 MB
+ Max (CPU) memory: 647 MB, Max (CPU) time: 00:00:03
+ Output generation:
+ Duration: 00:00:02, Max (Total) memory: 9925 MB
+ Max (CPU) memory: 664 MB, Max (CPU) time: 00:00:01
+
+Warning message summary: 
+
+Message Code(ID)   Count     Message
+=================|=========|=======================================================================================================================
+EXTGRMP-184       1          Gray-box mode -type lef_obstruction was selected for extraction, but 9 macro definitions did not include any obstruction data in LEF. The first 9 macros are:
+ BOUNDARY_LEFTBWP30P140 BOUNDARY_RIGHTBWP30P140 FILL16BWP30P140 FILL2BWP30P140 FILL32BWP30P140 FILL3BWP30P140 FILL4BWP30P140 FILL64BWP30P140 FILL8BWP30P140
+Check the library inputs and log files from library setup to determine whether there is a problem.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-327       1          The LEF parser reported the following warning :
+WARNING (LEFPARS-2001): No VERSION statement found, using the default value 5.8. See file /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef at line 272138.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-330       2          LEF layer "PO" is not mapped with any tech file layer. Ignoring its definition. 
+An error will be issued if its definition is required.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-414       1          No GDSII/OASIS file is specified. Setting graybox type as LEF_OBSTRUCTION.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-546       10         Macro CKBD12BWP30P140 is incomplete because layer CO is not defined in the technology file. Please check its definition.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-574       1          There are 26 unrouted nets. 
+Please check file *.incompletenets in your output directory for details.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-605       1          Layer "PO" will not be extracted and will be ignored.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-768       1          BUSBITCHARS missing in /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef file, therefore taking default value [] for BUSBITCHARS.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-769       1          DIVIDECHAR missing in /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/deliverables/innovus/dig_top_floorplan.db/libs/lef/tcbn28hpcplusbwp30p140.lef file, therefore taking default value / for DIVIDECHAR.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-819       1          The starN output flavor is requested with disable subnode true option. Disable subnode true option is conflicting with starN output flavour so is turned off.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+EXTGRMP-860       1          Maximum size of the process stack (stacksize) on host asav-204-148.unisinos.br is 268435456 bytes. Set it to a large value, preferably unlimited, to avoid any unexpected issues.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+
+TOTAL WARNINGS: 21 
+TOTAL ERRORS: 0 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+----
+
+Ending at 2026-Jul-20 22:00:57 (2026-Jul-21 01:00:57 GMT).
+
+ Tool:                    Cadence Quantus Extraction 64-bit
+ Version:                 23.1.1-s336 Mon Jan 20 22:24:34 PST 2025
+ IR Build No:             336 
+ Techfile:               
+/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/_qrc_techdir/rc_corner_125c_capwst/qrcTechFile
+; version: 15.2.1-s070 
+ License(s) used:         25 of QTS300, 1 of QTS310, 1 of QTS320 
+ User Name:               andersonfw
+ Host Name:               asav-204-148.unisinos.br
+ Host OS Release:         Linux 4.18.0-553.5.1.el8_10.x86_64
+ Host OS Version:         #1 SMP Thu Jun 6 09:41:19 UTC 2024
+ CPU Model Name:          AMD EPYC 7453 28-Core Processor
+ L1d Cache:               32K
+ L1i Cache:               32K
+ L2 Cache:                512K
+ L3 Cache:                16384K
+ Memory:                  125 GB
+ Run duration:            00:00:04 CPU time, 00:00:24 clock time
+ Max (Total) memory used: 9925 MB
+ Max (CPU) memory used:   664 MB
+ Max Temp-Directory used: 65 MB
+ Nets/hour:               10323K nets/CPU-hr, 1720K nets/clock-hr
+ Design data:
+    Components:           18226
+    Phy components:       8071
+    Nets:                 11471
+    Unconnected pins:     26
+ Warning messages:        21
+ Error messages:          0
+
+Exit code 0.
+Cadence Quantus Extraction completed successfully at 2026-Jul-20 22:00:58
+(2026-Jul-21 01:00:58 GMT).
+*** qrc completed. ***
+Begin read_parasitics... (cpu: 0:00:00.0 real: 0:00:00.0 mem: 66326.594M)
+Following parasitics specified for RC corner rc_corner_125c_capwst:
+	/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz (spef)
+		Cell adpll has spef /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz specified
+Start spef parsing (MEM=66326.6).
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 10 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 20 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 30 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 40 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 50 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 60 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 70 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 80 %
+Spef file '/home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz' reading completed:: 90 %
+SPEF file /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/tmp_qrc_poU7Np/adpll.spef.gz.
+Number of Resistors     : 81641
+Number of Ground Caps   : 78294
+Number of Coupling Caps : 34630
+
+End spef parsing (MEM=66358.6 CPU=0:00:01.4 REAL=0:00:01.0).
+Cell adpll, hinst 
+Done read_parasitics... (cpu: 0:00:01.5 real: 0:00:02.0 mem: 66358.594M)
+Start delay calculation (fullDC) (50 T). (MEM=55922.4)
+ Report initialization with DMWrite ... (0, Worst)
+AAE_INFO: 50 threads acquired from CTE.
+Total number of fetched objects 11533
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+AAE_INFO-618: Total number of nets in the design is 12502,  92.7 percent of the nets selected for SI analysis
+End delay calculation. (MEM=56595.4 CPU=0:00:13.3 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=56281.4 CPU=0:00:16.3 REAL=0:00:04.0)
+Save waveform /home/andersonfw/Digital/ADPLL_WIMED/synth/build/tsmc_28/work/innovus_temp_378650_0eb042e4-150c-4609-899c-60f64cf60cf0_asav-204-148.unisinos.br_andersonfw_5LmUlv/.AAE_2E74YE/.AAE_378650_0eb042e4-150c-4609-899c-60f64cf60cf0/waveform.data...
+Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 56383.1M)
+Add other clocks and setupCteToAAEClockMapping during iter 1
+Loading CTE timing window is completed (CPU = 0:00:00.1, REAL = 0:00:00.0, MEM = 56384.3M)
+Starting SI iteration 2
+Start delay calculation (fullDC) (50 T). (MEM=56554.4)
+ Report initialization with DMUpdate ... (1, Worst)
+Glitch Analysis: View analysis_view_0p81v_125c_capwst_slowest -- Total Number of Nets Skipped = 3. 
+Glitch Analysis: View analysis_view_0p81v_125c_capwst_slowest -- Total Number of Nets Analyzed = 11533. 
+Total number of fetched objects 11533
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+AAE_INFO-618: Total number of nets in the design is 12502,  1.2 percent of the nets selected for SI analysis
+End delay calculation. (MEM=56943.6 CPU=0:00:03.0 REAL=0:00:01.0)
+End delay calculation (fullDC). (MEM=56943.6 CPU=0:00:03.0 REAL=0:00:01.0)
+Load RC corner of view analysis_view_0p81v_125c_capwst_slowest
+
+Begin Power Analysis
+
+             0V	    VSS
+          0.81V	    VDD
+
+Begin Processing Timing Library for Power Calculation
+
+Ended Processing Timing Library for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57061.18MB/73957.73MB/57061.18MB)
+
+
+
+Begin Processing Power Net/Grid for Power Calculation
+
+Ended Processing Power Net/Grid for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57061.18MB/73957.73MB/57061.18MB)
+
+Begin Processing Timing Window Data for Power Calculation
+
+CKV_CLK(2403.85MHz) CK: assigning clock CKV_CLK to net ckv
+CKV_BUFF(2403.85MHz) CK: assigning clock CKV_BUFF to net u_apr/u_hsd/ckv_int
+CKVD2_CLK(1201.92MHz) CK: assigning clock CKVD2_CLK to net u_apr/u_hsd/u_ckr_phv_gen/ckvd2_src
+CKVD4_CLK(600.962MHz) CK: assigning clock CKVD4_CLK to net u_apr/CTS_12
+CKR_CLK(46.2278MHz) CK: assigning clock CKR_CLK to net u_apr/u_hsd/u_ckr_phv_gen/ckr_n
+CK: assigning clock CKR_CLK to net u_apr/u_hsd/u_ckr_phv_gen/ckr_p
+REG_CLK(26.001MHz) CK: assigning clock REG_CLK to net fref
+FREF_CLK(26.001MHz) Ended Processing Timing Window Data for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57061.18MB/73957.73MB/57061.18MB)
+
+Begin Processing User Attributes
+
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57061.18MB/73957.73MB/57061.18MB)
+
+Begin Processing Signal Activity
+
+
+Starting Levelizing
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 10%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 20%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 30%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 40%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 50%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 60%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 70%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 80%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 90%
+
+Finished Levelizing
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+
+Starting Activity Propagation
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+
+Finished Activity Propagation
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+
+Activity annotation summary:
+        Primary Inputs : 85/85 = 100%
+          Flop outputs : 1336/1336 = 100%
+  Memory/Macro outputs : 0/0 = 0%
+      Tristate outputs : 0/0 = 0%
+            Total Nets : 11497/11497 = 100%
+
+Ended Processing Signal Activity: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57061.92MB/73957.73MB/57061.92MB)
+
+Begin Power Computation
+
+      ----------------------------------------------------------
+      # of cell(s) missing both power/leakage table: 0
+      # of cell(s) missing power table: 2
+      # of cell(s) missing leakage table: 0
+      ----------------------------------------------------------
+CellName                                  Missing Table(s)
+TIEHBWP30P140                             internal power, 
+TIELBWP30P140                             internal power, 
+
+
+
+Starting Calculating power
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 10%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 20%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 30%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 40%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 50%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 60%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 70%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 80%
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT): 90%
+
+Finished Calculating power
+2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+      # of MSMV cell(s) missing power_level: 0
+Ended Power Computation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57077.70MB/74395.81MB/57077.70MB)
+
+Begin Processing User Attributes
+
+Begin Processing set_power
+Ended Processing set_power: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=57077.70MB/74395.81MB/57077.70MB)
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=57077.70MB/74395.81MB/57077.70MB)
+
+Ended Power Analysis: (cpu=0:00:01, real=0:00:00, mem(process/total/peak)=57077.70MB/74395.81MB/57077.70MB)
+
+Begin Boundary Leakage Calculation
+Ended Boundary Leakage Calculation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=57077.78MB/74395.81MB/57077.78MB)
+Begin Static Power Report Generation
+*----------------------------------------------------------------------------------------
+*	Innovus 23.34-s088_1 (64bit) 02/28/2025 12:55 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2026-Jul-20 22:01:06 (2026-Jul-21 01:01:06 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: adpll
+*
+*	Parasitic Files used:
+*
+*       Dynamic View: analysis_view_0p81v_125c_capwst_slowest
+*
+*       Leakage View: analysis_view_0p81v_125c_capwst_slowest
+*
+*       User-Defined Activity : N.A.
+*
+*	Switching Activity File used:
+*	        ../../../rtl/data/2402_WORST/FPREDICT_DUMPVARS/activity_worst_20260720_2155.shm/activity_worst_20260720_2155.trn
+*                  Shm Window used(Start Time, Stop Time):  
+*               Shm Scale Factor: 1
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs
+*
+*       report_power -view analysis_view_0p81v_125c_capwst_slowest
+*
+-----------------------------------------------------------------------------------------
+*
+
+
+
+Total Power
+-----------------------------------------------------------------------------------------
+Total Internal Power:        0.32113641 	   30.1199%
+Total Switching Power:       0.18144966 	   17.0185%
+Total Leakage Power:         0.56360726 	   52.8616%
+Total Power:                 1.06619333
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                         0.126    0.005789      0.1846      0.3164       29.68
+Macro                                  0           0           0           0           0
+IO                                     0           0           0           0           0
+Combinational                     0.1263      0.1153      0.3679      0.6096       57.17
+Clock (Combinational)            0.03616     0.05013    0.004475     0.09076       8.512
+Clock (Sequential)               0.03266     0.01021     0.00658     0.04946       4.639
+-----------------------------------------------------------------------------------------
+Total                             0.3211      0.1814      0.5636       1.066         100
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                      0.81     0.3211      0.1814      0.5636       1.066         100
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+FREF_CLK                       3.638e-05    0.000162   6.926e-05   0.0002676      0.0251
+CKV_BUFF                         0.01674     0.01038   0.0002307     0.02735       2.565
+CKV_CLK                           0.0293     0.01765   0.0003829     0.04733       4.439
+REG_CLK                        5.964e-05           0     0.00201    0.002069      0.1941
+CKVD4_CLK                        0.02846     0.03019    0.001843     0.06049       5.674
+CKR_CLK                          0.00481     0.01078    0.006586     0.02217        2.08
+-----------------------------------------------------------------------------------------
+Total                            0.06266     0.05878     0.01089      0.1323       12.41
+-----------------------------------------------------------------------------------------
+Clock: FREF_CLK
+Clock Period: 0.038460 usec 
+Clock Toggle Rate:    52.0021 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKV_BUFF
+Clock Period: 0.000416 usec 
+Clock Toggle Rate:  4803.9997 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKV_CLK
+Clock Period: 0.000416 usec 
+Clock Toggle Rate:  4803.9997 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: REG_CLK
+Clock Period: 0.038462 usec 
+Clock Toggle Rate:    52.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKVD4_CLK
+Clock Period: 0.001665 usec 
+Clock Toggle Rate:  1200.9999 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKR_CLK
+Clock Period: 0.038462 usec 
+Clock Toggle Rate:    52.0000 Mhz 
+Clock Static Probability:  0.5385
+  
+ 
+ 
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*              Highest Average Power: u_apr/u_hsd/u_ckr_phv_gen/qx2_reg (DFD1BWP30P140):          0.01521
+*              Highest Leakage Power: u_apr/u_digital/u_lsd/u_arith_div/u_CW_div_seq_RC_CG_DECLONE_HIER_INST/RC_CGIC_INST (CKLNQD16BWP30P140):        0.0004388
+*                Total Cap:      3.98567e-11 F
+*                Total instances in design: 10155
+*                Total instances in design with no power:     0
+*                Total instances in design with no activty:     0
+
+*                Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+ 
+** INFO:  (VOLTUS_POWR-3465): There are 0 decaps and 0 fillers in the design
+
+Ended Static Power Report Generation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=57080.63MB/74395.81MB/57080.63MB)
+

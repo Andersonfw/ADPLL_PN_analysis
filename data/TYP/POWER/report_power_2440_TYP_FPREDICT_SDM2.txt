@@ -1,0 +1,237 @@
+Using Power View analysis_view_0p90v_25c_captyp_nominal
+.
+Load RC corner of view analysis_view_0p90v_25c_captyp_nominal
+
+Begin Power Analysis
+
+             0V	    VSS
+           0.9V	    VDD
+Begin Processing Timing Library for Power Calculation
+
+Ended Processing Timing Library for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=58138.84MB/74674.82MB/58138.84MB)
+
+
+
+Begin Processing Power Net/Grid for Power Calculation
+
+Ended Processing Power Net/Grid for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=58138.84MB/74674.82MB/58138.84MB)
+
+Begin Processing Timing Window Data for Power Calculation
+
+CKV_CLK(2403.85MHz) CK: assigning clock CKV_CLK to net ckv
+CKV_BUFF(2403.85MHz) CK: assigning clock CKV_BUFF to net u_apr/u_hsd/ckv_int
+CKVD2_CLK(1201.92MHz) CK: assigning clock CKVD2_CLK to net u_apr/u_hsd/u_ckr_phv_gen/ckvd2_src
+CKVD4_CLK(600.962MHz) CK: assigning clock CKVD4_CLK to net u_apr/u_hsd/CTS_1
+CKVD8_CLK(300.481MHz) CK: assigning clock CKVD8_CLK to net u_apr/CTS_11
+REG_CLK(26.001MHz) CK: assigning clock REG_CLK to net fref
+FREF_CLK(26.001MHz) CKR_CLK(23.1139MHz) CK: assigning clock CKR_CLK to net u_apr/u_hsd/u_ckr_phv_gen/ckr_n
+CK: assigning clock CKR_CLK to net u_apr/u_hsd/u_ckr_phv_gen/ckr_p
+Ended Processing Timing Window Data for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=58138.84MB/74674.82MB/58138.84MB)
+
+Begin Processing User Attributes
+
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=58138.84MB/74674.82MB/58138.84MB)
+
+Begin Processing Signal Activity
+
+
+Starting Activity Propagation
+2026-Jul-23 17:13:43 (2026-Jul-23 20:13:43 GMT)
+
+Finished Activity Propagation
+2026-Jul-23 17:13:43 (2026-Jul-23 20:13:43 GMT)
+
+Activity annotation summary:
+        Primary Inputs : 85/85 = 100%
+          Flop outputs : 1318/1318 = 100%
+  Memory/Macro outputs : 0/0 = 0%
+      Tristate outputs : 0/0 = 0%
+            Total Nets : 11244/11244 = 100%
+
+Ended Processing Signal Activity: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=58138.84MB/74674.82MB/58138.84MB)
+
+Begin Power Computation
+
+      ----------------------------------------------------------
+      # of cell(s) missing both power/leakage table: 0
+      # of cell(s) missing power table: 2
+      # of cell(s) missing leakage table: 0
+      ----------------------------------------------------------
+CellName                                  Missing Table(s)
+TIEHBWP30P140                             internal power, 
+TIELBWP30P140                             internal power, 
+
+
+
+Starting Calculating power
+2026-Jul-23 17:13:43 (2026-Jul-23 20:13:43 GMT)
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 10%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 20%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 30%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 40%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 50%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 60%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 70%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 80%
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT): 90%
+
+Finished Calculating power
+2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT)
+      # of MSMV cell(s) missing power_level: 0
+Ended Power Computation: (cpu=0:00:01, real=0:00:00, mem(process/total/peak)=58138.93MB/74674.82MB/58138.93MB)
+
+Begin Processing User Attributes
+
+Begin Processing set_power
+Ended Processing set_power: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=58138.93MB/74674.82MB/58138.93MB)
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=58138.93MB/74674.82MB/58138.93MB)
+
+Ended Power Analysis: (cpu=0:00:01, real=0:00:00, mem(process/total/peak)=58138.93MB/74674.82MB/58138.93MB)
+
+Begin Boundary Leakage Calculation
+Ended Boundary Leakage Calculation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=58138.93MB/74674.82MB/58138.93MB)
+Begin Static Power Report Generation
+*----------------------------------------------------------------------------------------
+*	Innovus 23.34-s088_1 (64bit) 02/28/2025 12:55 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2026-Jul-23 17:13:44 (2026-Jul-23 20:13:44 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: adpll
+*
+*	Parasitic Files used:
+*
+*       Dynamic View: analysis_view_0p90v_25c_captyp_nominal
+*
+*       Leakage View: analysis_view_0p90v_25c_captyp_nominal
+*
+*       User-Defined Activity : N.A.
+*
+*	Switching Activity File used:
+*	        ../../../rtl/data/2440_TYP/FPREDICT_SDM2_DUMPVARS/activity_typ_20260723_1701.shm/activity_typ_20260723_1701.trn
+*                  Shm Window used(Start Time, Stop Time):  
+*               Shm Scale Factor: 1
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs
+*
+*       report_power -view analysis_view_0p90v_25c_captyp_nominal
+*
+-----------------------------------------------------------------------------------------
+*
+
+
+
+Total Power
+-----------------------------------------------------------------------------------------
+Total Internal Power:        0.42975807 	   57.5976%
+Total Switching Power:       0.27577388 	   36.9601%
+Total Leakage Power:         0.04060735 	    5.4423%
+Total Power:                 0.74613930
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                        0.1694    0.009538      0.0129      0.1918       25.71
+Macro                                  0           0           0           0           0
+IO                                     0           0           0           0           0
+Combinational                     0.1789      0.1746     0.02691      0.3804       50.98
+Clock (Combinational)            0.03873     0.06933   0.0002904      0.1083       14.52
+Clock (Sequential)               0.04278     0.02233   0.0005037     0.06561       8.793
+-----------------------------------------------------------------------------------------
+Total                             0.4298      0.2758     0.04061      0.7461         100
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                       0.9     0.4298      0.2758     0.04061      0.7461         100
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+FREF_CLK                       4.327e-05   0.0002092   4.908e-06   0.0002574     0.03449
+CKVD4_CLK                        0.01441     0.01574   4.942e-05      0.0302       4.048
+CKV_BUFF                         0.02056     0.02047    1.63e-05     0.04105       5.501
+CKV_CLK                          0.03594     0.02997    2.65e-05     0.06594       8.837
+REG_CLK                        0.0002317   7.565e-05   0.0001392   0.0004465     0.05985
+CKVD8_CLK                        0.01412     0.02558   0.0001077     0.03982       5.336
+CKR_CLK                         0.005484     0.01371   0.0004426     0.01964       2.632
+-----------------------------------------------------------------------------------------
+Total                            0.07024     0.08529   0.0007704      0.1563       20.95
+-----------------------------------------------------------------------------------------
+Clock: FREF_CLK
+Clock Period: 0.038460 usec 
+Clock Toggle Rate:    52.0021 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKVD4_CLK
+Clock Period: 0.001639 usec 
+Clock Toggle Rate:  1220.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKV_BUFF
+Clock Period: 0.000410 usec 
+Clock Toggle Rate:  4880.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKV_CLK
+Clock Period: 0.000410 usec 
+Clock Toggle Rate:  4880.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: REG_CLK
+Clock Period: 0.038443 usec 
+Clock Toggle Rate:    52.0250 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKVD8_CLK
+Clock Period: 0.003279 usec 
+Clock Toggle Rate:   610.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: CKR_CLK
+Clock Period: 0.038462 usec 
+Clock Toggle Rate:    52.0000 Mhz 
+Clock Static Probability:  0.5385
+  
+ 
+ 
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*              Highest Average Power:     u_apr/u_hsd/u_ckv_and (CKAN2D2BWP30P140):          0.02134
+*              Highest Leakage Power:       CTS_ccl_a_buf_00009 (CKBD16BWP30P140):        3.354e-05
+*                Total Cap:      3.91715e-11 F
+*                Total instances in design:  9915
+*                Total instances in design with no power:     0
+*                Total instances in design with no activty:     0
+
+*                Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+ 
+** INFO:  (VOLTUS_POWR-3465): There are 0 decaps and 0 fillers in the design
+
+Ended Static Power Report Generation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=58138.93MB/74674.82MB/58138.93MB)
+
